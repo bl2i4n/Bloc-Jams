@@ -14,3 +14,9 @@ var animatePoints = function(){
                 }
                 
             };
+
+window.onload = function() {
+    window.addEventListener('scroll', function(event){
+        console.log(event);
+    });
+}
