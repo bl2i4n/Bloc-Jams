@@ -38,6 +38,9 @@ body.landing {
     padding:2rem;
     text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4a3796a8137a764267c418fd90c763b536b76b22
     opacity: 0;
     -webkit-transform: scaleX(0.9) translateY(3rem);
     -moz-transform: scaleX(0.9) translateY(3rem);
@@ -48,8 +51,11 @@ body.landing {
     -webkit-transition-delay: 0.2s;
     -moz-transition-delay: 0.2s;
     transition-delay: 0.2s;
+<<<<<<< HEAD
 =======
 >>>>>>> 8b606c69a4babf7a2b30f764e18b840eecc95abb
+=======
+>>>>>>> 4a3796a8137a764267c418fd90c763b536b76b22
 }
 
 .point .point-title{
