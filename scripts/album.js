@@ -30,6 +30,22 @@
      ]
  };
 
+var albumJT = {
+     title: '20/20',
+     artist: 'Justin Timberlake',
+     label: 'EM',
+     year: '2015',
+     albumArtUrl: 'assets/images/album_covers/20.png',
+     songs: [
+         { title: 'Suit & Tie', duration: '1:01' },
+         { title: 'Ring, ring, ring', duration: '5:01' },
+         { title: 'Im bringing sexy back', duration: '3:21'},
+         { title: 'Senorita', duration: '3:14' },
+         { title: 'Cabaret', duration: '2:15'}
+     ]
+ };
+
+
 var createSongRow = function(songNumber, songName, songLength){
     var template =
     '<tr class="album-view-song-item">'
@@ -41,21 +57,22 @@ var createSongRow = function(songNumber, songName, songLength){
     return template;
 };
 
+//  Selects elements that we want to populate with text dynamically
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
 var setCurrentAlbum = function(album){
-    // 1
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
-    // 2
+    //  Assign values to each part of the album (text, images)
     albumTitle.firstChild.nodeValue = album.title;
     albumTitle.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
     albumImage.setAttribute('src', album.albumArtUrl);
-    // 3
+    // Clear conteints of album song list container
     albumSongList.innerHTML = '';
-    // 4
+    // Build list
     for (var i = 0; i < album.songs.length; i++){
         albumSongList.innerHTML += createSongRow(i +1, album.songs[i].title, album.songs[i].duration);
     }
@@ -63,5 +80,15 @@ var setCurrentAlbum = function(album){
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+    
+    var albums = [albumPicasso, albumMarconi, albumJT];
+    var index = 1;
+    albumImage.addEventListener("click", function(event){
+        setCurrentAlbum(albums[index]);
+        index++;
+        if(index == albums.length){
+            index =0;
+        }
+    });
     
 };
