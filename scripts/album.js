@@ -45,12 +45,11 @@ var albumJT = {
      ]
  };
 
-
+ // allows access to the data held in the attribute using DOM methods
 var createSongRow = function(songNumber, songName, songLength){
     var template =
     '<tr class="album-view-song-item">'
-    +' <td class="song-item-number">' + songNumber + '</td>'
-    +' <td class="song-item-number" data-song-number=">' + songNumber + '</td>' // allows access to the data held in the attribute using DOM methods
+    +' <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber    + '</td>'
     +' <td class="song-item-title">' + songName + '</td>'
     +' <td class="song-item-duration">' + songLength + '</td>'
     +'</tr>'
@@ -71,7 +70,7 @@ var setCurrentAlbum = function(album){
     albumTitle.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
     albumImage.setAttribute('src', album.albumArtUrl);
-    // Clear conteints of album song list container
+    // Clear contents of album song list container
     albumSongList.innerHTML = '';
     // Build list
     for (var i = 0; i < album.songs.length; i++){
@@ -97,11 +96,11 @@ window.onload = function() {
     });
     
     for (var i =0; i< songRows.length; i++) {
-        songRows[i].addEventListener('mouseleave', function(event)){
+        songRows[i].addEventListener('mouseleave', function(event){
         // Selects first child element, which is the song-item-number element
         this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
         });
-    
+    }
     var albums = [albumPicasso, albumMarconi, albumJT];
     var index = 1;
     albumImage.addEventListener("click", function(event){
@@ -111,4 +110,4 @@ window.onload = function() {
             index =0;
         }
     });
-}
+};
