@@ -78,13 +78,17 @@ var setCurrentAlbum = function(album){
     }
 };
 
+//need if statement here for checkpoint 13!
+//review what this does
+ //mathematical expression
 var findParentByClassName = function(element, targetClass) {
     if(element){
         var currentParent = element.parentElement;
-        //mathematical expression
-        //review what this does
         while(currentParent.className != targetClass && currentParent.className !== null) {
             currentParent = currentParent.parentElement;
+            if(currentParent === undefined || currentParent === null) {
+                alert("No parent found");
+            } else { alert("No parent found with that class name");}
         }
         return currentParent;
     }
@@ -118,7 +122,7 @@ var clickHandler = function(targetElement){
         songItem.innerHTML = pauseButtonTemplate;
         currentlyPlayingSong = songItem.getAttribute('data-song-number');
     } else if ( currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
-        songItem.innerHTML = pauseButtonTemplate;
+        songItem.innerHTML = playButtonTemplate;
         currentlyPlayingSong = null;
     } else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')){
         var currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
@@ -146,11 +150,11 @@ window.onload = function() {
         // Only target individual song rows during event delegation
         if(event.target.parentElement.className === 'album-view-song-item'){
         // Change the content from the number to the play button's HTML 
-        event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;    
-        var songItem = getSongItem(event.target);
+            //event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;    
+            var songItem = getSongItem(event.target);
         // review this implementation
-        // conditional that only changes the innerHTML of the table cell when the element does not ebelong to the currentlyPlayingSong
-        if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
+        // conditional that only changes the innerHTML of the table cell when the element does not belong to the currentlyPlayingSong
+            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
             //goes back to playButtonTemplate
             songItem.innerHTML = playButtonTemplate;
             }
