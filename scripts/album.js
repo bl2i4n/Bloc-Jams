@@ -80,7 +80,7 @@ var setCurrentAlbum = function(album){
 
 //need if statement here for checkpoint 13!
 //review what this does
- //mathematical expression
+//mathematical expression
 var findParentByClassName = function(element, targetClass) {
     if(element){
         var currentParent = element.parentElement;
