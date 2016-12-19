@@ -4,6 +4,7 @@ body.album {
     background-position: : center center;
     background-size: cover;
     padding-bottom: 200px;
+    padding-bottom: 200px;
 }
 
 .album-cover-art {
@@ -72,7 +73,7 @@ body.album {
     height: 28px;
 }
 
-.album-song-button: hover {
+.album-song-button:hover {
     cursor: pointer;
     color: white;
     background-color: rgb(210, 40, 123);
