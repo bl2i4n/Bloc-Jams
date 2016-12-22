@@ -54,7 +54,7 @@ var createSongRow = function(songNumber, songName, songLength){
     +' <td class="song-item-duration">' + songLength + '</td>'
     +'</tr>'
     ;
-    var $row = $(template);
+    return $(template);
     
     var clickHandler = function() {
         var songNumber = $(this).attr('data-song-number');
@@ -101,15 +101,16 @@ var createSongRow = function(songNumber, songName, songLength){
     
 };
 
+//  Selects elements that we want to populate with text dynamically
+var $albumTitle = $('.album-view-title');
+var $albumArtist = $('.album-view-artist');
+var $albumReleaseInfo = $('.album-view-release-info');
+var $albumImage = $('.album-cover-art');
+var $albumSongList = $('.album-view-song-list');
+    
 
 var setCurrentAlbum = function(album){
-    //  Selects elements that we want to populate with text dynamically
-    var $albumTitle = $('.album-view-title');
-    var $albumArtist = $('.album-view-artist');
-    var $albumReleaseInfo = $('.album-view-release-info');
-    var $albumImage = $('.album-cover-art');
-    var $albumSongList = $('.album-view-song-list');
-    
+
     //  Assign values to each part of the album (text, images)
     $albumTitle.text(album.title);
     $albumArtist.text(album.artist);
