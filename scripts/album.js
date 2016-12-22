@@ -47,6 +47,7 @@ var albumJT = {
 
  // allows access to the data held in the attribute using DOM methods
 var createSongRow = function(songNumber, songName, songLength){
+    
     var template =
     '<tr class="album-view-song-item">'
     +' <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber    + '</td>'
@@ -54,7 +55,7 @@ var createSongRow = function(songNumber, songName, songLength){
     +' <td class="song-item-duration">' + songLength + '</td>'
     +'</tr>'
     ;
-    return $(template);
+    var $row = $(template);
     
     var clickHandler = function() {
         var songNumber = $(this).attr('data-song-number');
@@ -93,7 +94,7 @@ var createSongRow = function(songNumber, songName, songLength){
     };
     
     //1
-    $row.find(.song-item-number).click(clickHandler);
+    $row.find('.song-item-number').click(clickHandler);
     //2
     $row.hover(onHover, offHover);
     //3
@@ -145,7 +146,7 @@ $(document).ready(function() {
         // conditional that only changes the innerHTML of the table cell when the element does not belong to the currentlyPlayingSong
         //goes back to playButtonTemplate
     
-    var albums = [albumPicasso, albumMarconi, albumJT];
+    /*var albums = [albumPicasso, albumMarconi, albumJT];
     var index = 1;
     albumImage.addEventListener("click", function(event){
         setCurrentAlbum(albums[index]);
@@ -153,5 +154,5 @@ $(document).ready(function() {
         if(index == albums.length){
             index =0;
         }
-    });
+    });*/
 });
