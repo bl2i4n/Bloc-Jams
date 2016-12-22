@@ -83,11 +83,11 @@ var setCurrentAlbum = function(album){
     }
 };
 
-var updatePlayerBarSong = function(songName){
+var updatePlayerBarSong = function(){
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);   
-}
+};
 
 //need if statement here for checkpoint 13!
 //review what this does
@@ -100,7 +100,7 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 
 var currentAlbum = null;
 //Store state of playing songs
-var currentPlayingSongNumber = null;
+var currentlyPlayingSongNumber = null;
 var currentSongFromAlbum = null;
 
 $(document).ready(function() {
