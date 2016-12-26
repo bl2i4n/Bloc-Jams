@@ -1,5 +1,3 @@
-
- // allows access to the data held in the attribute using DOM methods
 var createSongRow = function(songNumber, songName, songLength){
     
     var template =
