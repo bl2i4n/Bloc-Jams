@@ -8,7 +8,7 @@
     z-index: 100;
 }
 
-.play-bar a {
+.player-bar a {
     font-size: 1.1rem;
     vertical-align: middle;
 }
@@ -38,7 +38,7 @@
     padding-right: 1rem;
 }
 
-.play-bar .main-controls .previous {
+.player-bar .main-controls .previous {
     margin-right: 16.5%;
 }
 
